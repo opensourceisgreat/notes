@@ -65,3 +65,19 @@ public void fun(){
 }
 ```
 
+## 7、数组
+
+```java
+Arrays.fill();//方法
+//相当于for循环赋值
+
+//list 转成 int数组
+int[] arr = list.stream().mapToInt(Integer::valueOf).toArray();
+
+//int数组 转list
+Arrays.asList()//List不包括add,remove方法，返回的ArrayList对象是Arrays自己的内部类
+List list = new ArrayList<>(Arrays.asList("a", "b", "c"));//这种方法对于数组中的元素是int是不行的，int不是类，如果是二维数组中的每个元素是int[]，可以所使用，int[]是类
+//可行
+List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+```
+
