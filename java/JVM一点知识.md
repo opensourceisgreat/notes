@@ -50,3 +50,7 @@ Build-Jdk-Spec: 1.8
 Spring-Boot-Version: 2.1.10.RELEASE
 Created-By: Maven Archiver 3.4.0
 Main-Class: org.springframework.boot.loader.JarLauncher
+
+### 四种引用
+
+强、软、弱、虚

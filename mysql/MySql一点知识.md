@@ -99,7 +99,7 @@ InnoDB ：其数据文件本身就是索引文件，表数据文件本身就是�
 
 **某事务给某条行记录添加排它锁，其他事务select依然可以查询，只是说无法在这条记录上再加锁了；也就是说select（不显示添加锁的情况下，它默认本身也是不给记录加锁的）在任何事务中都可以直接执行。如果某事务加排它锁，其他事务要等到它提交才能继续加锁（让自己做修改操作）**
 
-==事务中添加的锁在，事务提交后才会释放，事务A修改某条数据未提交，事务B修改只能等待事务A提交后才能执行==
+==事务中添加的锁在事务提交后才会释放，事务A修改某条数据未提交，事务B修改只能等待事务A提交后才能执行==
 
 
 
@@ -153,14 +153,21 @@ select name from test_index where name like '%f%';//走索引
 
 ```
 
+### MySQL语句问题
 
+清空数据`truncate 表名`比`delete from 表名`更好，前者可以将数据库自增清除到0开始
+
+- InnoDB 使用 delete 清空表，数据库重启，自增字段会从1开始，因为InnoDB 自增量是存储在内存中的
+- MYISAM 使用 delete 清空表，自增量存储在文件中，重启仍然从上一次自增量开始
 
 ### 补充小知识
 
-*Latin1*是ISO-8859-1的别名
+*Latin1*是ISO-8859-1的别名,不支持中文
 
 [一条sql执行的很慢的原因](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485185&idx=1&sn=66ef08b4ab6af5757792223a83fc0d45&chksm=cea248caf9d5c1dc72ec8a281ec16aa3ec3e8066dbb252e27362438a26c33fbe842b0e0adf47&token=79317275&lang=zh_CN#rd)
 
 [一条sql如何执行](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485097&idx=1&sn=84c89da477b1338bdf3e9fcd65514ac1&chksm=cea24962f9d5c074d8d3ff1ab04ee8f0d6486e3d015cfd783503685986485c11738ccb542ba7&token=79317275&lang=zh_CN#rd) 有binlog和redolog的讲解
 
 mvcc要使用undolog完成回滚和事务的隔离
+
+[字符集](https://www.cnblogs.com/geaozhang/p/6724393.html#MySQLyuzifuji)

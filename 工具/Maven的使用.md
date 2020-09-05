@@ -206,4 +206,12 @@ Failed to create a Maven project ‘…pom.xml’already exists in VFS
 解决方法，清除缓存即可
 
 ## 下载源码
+
 IDEA中先File--setting--import勾选自动下载源码，让后对maven项目reimport即可对已经导入的包下载源码
+
+## 错误搜集
+
+maven 项目在编译后，可能某些在src/main目录下的资源文件，没有编译输出到类路径下，也就是没有和class文件在同样的目录下，这样程序在运行的时候无法找到资源文件，导致报错，解决方案如下
+
+![image-20200829214754562](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200829214801.png)
+
