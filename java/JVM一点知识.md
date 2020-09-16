@@ -1,3 +1,9 @@
+### 参考资料
+
+[内存模型](https://www.processon.com/view/5ea7a1b9e401fd21c196eb17)
+
+[jvm文档](https://www.cnblogs.com/yanl55555/category/1686360.html)
+
 ### GC日志信息解释
 
 ![](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200619194958.png)
@@ -14,9 +20,9 @@ Class对象知识补充：
 
 ### 类构造器
 
+> <clinit>，类构造器方法，在jvm第一次加载class文件时调用， 因为是类级别的，所以只加载一次， 是编译器自动收集类中所有类变量（static修饰的变量）和静态语句块（static{}），中的语句合并产生的， 编译器收集的顺序，是由程序员在写在源文件中的代码的顺序决定的。也就是说语句块和static变量对同一变量初始化时，写代码时谁在后面，谁就是最终初始化的值。
 > 
-> <clinit>，类构造器方法，在jvm第一次加载class文件时调用， 因为是类级别的，所以只加载一次， 是编译器自动收集类中所有类变量（static修饰的变量）和静态语句块（static{}），中的语句合并产生的， 编译器收集的顺序，是由程序员在写在源文件中的代码的顺序决定的。
->
+>没有相关static，就没有类构造器方法<clinit>
 
 ### classpath
 
@@ -54,3 +60,19 @@ Main-Class: org.springframework.boot.loader.JarLauncher
 ### 四种引用
 
 强、软、弱、虚
+
+### 类加载过程
+
+![image-20200905153553662](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200905153600.png)
+
+![image-20200905160624535](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200905160624.png)
+
+
+
+**类加载器**
+
+![image-20200905161415189](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200905161415.png)
+
+![image-20200905161607866](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200905161608.png)
+
+![image-20200905161650728](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200905161650.png)
