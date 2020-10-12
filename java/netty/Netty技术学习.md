@@ -1,6 +1,6 @@
 ## 参考资源
 
-[https://www.bilibili.com/video/BV1WJ411k7Hk?p=63](https://www.bilibili.com/video/BV1WJ411k7Hk?p=85)
+[https://www.bilibili.com/video/BV1WJ411k7Hk?p=92](https://www.bilibili.com/video/BV1WJ411k7Hk?p=92)
 
 [Linux五种IO模型](https://juejin.im/post/6844903687626686472)
 
@@ -178,7 +178,30 @@ protobuf 大致流程
 
 ![image-20201011205946934](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20201011205947.png)
 
+> ReplayingDecoder传递一个专门的ByteBuf实现，当缓冲区中没有足够的数据时，这个实现会抛出某种类型的错误，假设在调用`buf.readInt()`时，缓冲区中有4个或更多字节。如果缓冲区中确实有4个字节，它将像您期望的那样返回整数报头。否则，将引发错误并将控制返回到ReplayingDecoder。如果ReplayingDecoder捕捉到错误，那么它会将缓冲区的readerIndex倒回“初始”位置(即缓冲区的开始)，并在缓冲区接收到更多数据时再次调用`decode(..)`方法。
+>
+> 请注意，ReplayingDecoder总是抛出相同的缓存错误实例，以避免每次抛出时创建新错误并填充其堆栈跟踪的开销。
+>
+> 
+>
+> 作者：寅务
+> 链接：https://www.jianshu.com/p/9cc9ee3e7ddc
+> 来源：简书
+> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
 ![image-20201011210137648](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20201011210137.png)
+
+
+
+#### TCP 粘包和拆包
+
+解决方案：自定义协议包+编解码器解决，
+
+关键是服务端每次读取数据长度的问题，解决这个问题就能解决粘包和拆包
+
+#### 部分源码剖析
 
 
 
@@ -186,3 +209,4 @@ protobuf 大致流程
 
 ## 该技术什么时候用？test。
 
+手写RPC
