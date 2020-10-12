@@ -187,3 +187,7 @@ select name from test_index where name like '%f%';//走索引
 mvcc要使用undolog完成回滚和事务的隔离
 
 [字符集](https://www.cnblogs.com/geaozhang/p/6724393.html#MySQLyuzifuji)
+
+
+
+连表查询时，对join的字段建立索引可以提高速度

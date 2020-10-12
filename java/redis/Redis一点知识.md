@@ -133,6 +133,10 @@ C 语言写的，官方提供的数据10，0000+的QPS 不比memecahe差
 
 redis 用的是内存来放数据，对于内存数据来讲，没有上下文切换，效率肯定是最好的，多线程会上下文切换耗费时间。（多线程有效率是在某个线程进行I/O去了(将硬盘数据读入到内存)，将CPU给其他线程使用，避免CPU浪费，而redis的数据都在内存中，直接让CPU执行操作就行了，这样更快）
 
+
+
+[redis6.0开始支持多线程处理](https://www.cnblogs.com/mr-wuxiansheng/p/12884356.html)
+
 ### 数据结构
 
 > It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster. 

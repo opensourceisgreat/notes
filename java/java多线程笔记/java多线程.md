@@ -1153,4 +1153,22 @@ public class CAS {
 ```
 
 # 9、JUC（未来高级工程师要掌握的内容）
+
 并发编程中很常用的工具类
+
+# 10、InterruptException
+
+参考文档
+
+[https://www.cnblogs.com/xll1025/p/6415378.html](https://www.cnblogs.com/xll1025/p/6415378.html)
+
+[https://www.jianshu.com/p/a8abe097d4ed](https://www.jianshu.com/p/a8abe097d4ed)
+
+> 当阻塞方法收到中断请求的时候就会抛出InterruptedException异常
+>
+> 当线程调用wait方法后，线程在进入等待区时，会把锁定接触。当对wait中的线程调用interrupt方法时，会先重新获取锁定，再抛出InterruptedException异常，获取锁定之前，无法抛出InterruptedException异常。
+
+# 11、sychronized 锁状态（JVM内部实现，用户不可见）
+
+[深入理解Java锁升级：无锁 → 偏向锁 → 轻量级锁 → 重量级锁](https://blog.csdn.net/qq_40722827/article/details/105598682)
+
