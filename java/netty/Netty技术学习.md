@@ -92,6 +92,8 @@ DirectByteBuffer是堆外内存，不是 JVM 中的堆，是指直接内存，�
 
 ![image-20200929190722907](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200929190730.png)
 
+
+
 ```java
 ByteBuffer.allocate(1024);//HeapByteBuffer，堆内内存
 ByteBuffer.allocateDirect(1024);//DirectByteBuffer,分配的是堆外内存，可以通过-XX:MaxDirectMemorySize来指定最大的堆外内存

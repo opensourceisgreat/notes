@@ -4,6 +4,8 @@
 
 [jvm文档](https://www.cnblogs.com/yanl55555/category/1686360.html)
 
+[JVM从入门到精通](https://blog.csdn.net/sinat_42483341/category_10210903.html)
+
 ### GC日志信息解释
 
 ![](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200619194958.png)
@@ -76,3 +78,57 @@ Main-Class: org.springframework.boot.loader.JarLauncher
 ![image-20200905161607866](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200905161608.png)
 
 ![image-20200905161650728](https://my-image-blog.oss-cn-beijing.aliyuncs.com/img/20200905161650.png)
+
+### JVM 调优
+
+```
+系统CPU经常100%，如何调优？(面试高频)
+    CPU100%那么一定有线程在占用系统资源，
+    找出哪个进程cpu高（top）
+    该进程中的哪个线程cpu高（top -Hp）
+    导出该线程的堆栈 (jstack)
+    查找哪个方法（栈帧）消耗时间 (jstack)
+    工作线程占比高 | 垃圾回收线程占比高
+
+
+系统内存飙高，如何查找问题？（面试高频）
+导出堆内存 (jmap)
+分析 (jhat jvisualvm mat jprofiler … )
+如何监控JVM
+jstat jvisualvm jprofiler arthas top…
+```
+
+#### 调优，从规划开始
+
+- 调优，从业务场景开始，没有业务场景的调优都是耍流氓
+
+- 无监控（压力测试，能看到结果），不调优（可以调整业务逻辑）
+
+- 步骤：
+
+  1. 熟悉业务场景（没有最好的垃圾回收器，只有最合适的垃圾回收器）
+
+     1. 响应时间、停顿时间 [CMS G1 ZGC] （需要给用户作响应）
+     2. 吞吐量 = 用户时间 /( 用户时间 + GC时间) [PS]
+
+  2. 选择回收器组合
+
+  3. 计算内存需求（没有一定之规，是经验值。 1.5G -> 16G，突然卡顿了，为啥？）
+
+  4. 选定CPU（预算能买到的，当然是越高越好，CPU多核，可以多线程运行呀）
+
+  5. 设定年代大小、升级年龄
+
+  6. 设定
+
+     日志参数，这是Java虚拟机的参数，也可以在Tomcat里面配置，貌似是在叫catalinaoptions里面指定java日志的参数。
+
+     1. `-Xloggc:/opt/xxx/logs/xxx-xxx-gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=20M -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCCause`
+        5个日志文件，循环产生。生产环境中的日志参数一般这么设置。
+        `%t`是生成时间的意思。
+        ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200628151904896.png)
+     2. 或者每天产生一个日志文件
+
+  7. 观察日志情况
+
+[jhat分析dump文件](https://www.cnblogs.com/baihuitestsoftware/articles/6406271.html)

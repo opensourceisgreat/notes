@@ -1166,9 +1166,12 @@ public class CAS {
 
 > 当阻塞方法收到中断请求的时候就会抛出InterruptedException异常
 >
-> 当线程调用wait方法后，线程在进入等待区时，会把锁定接触。当对wait中的线程调用interrupt方法时，会先重新获取锁定，再抛出InterruptedException异常，获取锁定之前，无法抛出InterruptedException异常。
+> 当线程调用wait方法后，线程在进入等待区时，会把锁定解除。当对wait中的线程调用interrupt方法时，会先重新获取锁定，再抛出InterruptedException异常，获取锁定之前，无法抛出InterruptedException异常。
 
 # 11、sychronized 锁状态（JVM内部实现，用户不可见）
 
 [深入理解Java锁升级：无锁 → 偏向锁 → 轻量级锁 → 重量级锁](https://blog.csdn.net/qq_40722827/article/details/105598682)
 
+# 12、LockSupport
+
+[wait/notify和LockSupport的区别](https://www.cnblogs.com/takumicx/p/9328459.html)
