@@ -40,6 +40,10 @@ public void test(){
 
 上述表明函数式编程天生适合并行运行，保证内部使用的变量不会被其他线程更改
 
+**final主要是保证数据一致性**
+
+[JDK8之前，匿名内部类访问的局部变量为什么必须要用final修饰](https://blog.csdn.net/tianjindong0804/article/details/81710268?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.channel_param)
+
 # 2、函数式接口
 
 ```java

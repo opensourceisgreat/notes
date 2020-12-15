@@ -2,7 +2,7 @@
 
 [基础知识](https://snailclimb.gitee.io/javaguide/#/docs/database/MySQL)
 
-[MySql存储问题](https://juejin.im/post/5b55b842f265da0f9e589e79)
+[数据库两大神器【索引和锁】](https://juejin.im/post/5b55b842f265da0f9e589e79)
 
 ### 补充资料
 
@@ -63,6 +63,8 @@ InnoDB ：其数据文件本身就是索引文件，表数据文件本身就是�
 [知识](https://segmentfault.com/a/1190000012650596)
 
 [谈谈你对Mysql的MVCC的理解](https://baijiahao.baidu.com/s?id=1629409989970483292&wfr=spider&for=pc)
+
+[InnoDB 并发插入，如何使用自增锁和意向锁](https://blog.csdn.net/alex_xfboy/article/details/87866876)
 
 ### 锁
 
