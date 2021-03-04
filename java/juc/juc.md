@@ -1,12 +1,25 @@
 
 
-# java中的常见异常（比较重要）
+## JUC 下 锁的实现是基于AQS 的
+
+参考文档：
+
+[Java并发之 AQS 深入解析(上) - 简书](https://www.jianshu.com/p/62ed0767471e)
+
+## 线程池的实现原理
+
+
+
+
+
+##  java中的常见异常（比较重要）
 
 1. ==java.util.ConcurrentModificationException并发修改异常==
+2. ==OOM(out of memory) 内存溢出异常== 
 
-2. ==OOM(out of memory) 内存溢出异常==
 
-   # 常见问题
+
+## 常见问题
 
 ==wait和sleep:wait是放开手去睡，放开手里的锁；sleep握紧手去睡，醒了手里还有锁。==
 

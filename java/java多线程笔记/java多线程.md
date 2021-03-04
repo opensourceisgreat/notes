@@ -777,6 +777,10 @@ public class VolatileTest {
 }
 ```
 
+ [java中volatile关键字的作用](https://www.cnblogs.com/ustc-anmin/p/11434769.html) 讲的比较详细
+
+
+
 ## 6.4、单例模式（实现方法很多，这里用其中一种方法实现）
 
 ```java
@@ -1171,6 +1175,8 @@ public class CAS {
 # 11、sychronized 锁状态（JVM内部实现，用户不可见）
 
 [深入理解Java锁升级：无锁 → 偏向锁 → 轻量级锁 → 重量级锁](https://blog.csdn.net/qq_40722827/article/details/105598682)
+
+[锁升级图](https://www.cnblogs.com/dongdongdong8001/p/13791668.html)
 
 # 12、LockSupport
 

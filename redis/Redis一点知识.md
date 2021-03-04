@@ -8,6 +8,8 @@ Redis 和 MySql 一致性解决方案
 
 Redis 持久化 RDB AOF
 
+Redis底层数据结构使用的skiplist结构，需要学习
+
 ### Linux 安装
 
 1、下载安装包
